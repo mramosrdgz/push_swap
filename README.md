@@ -2,7 +2,7 @@
 
 ## Descripción del proyecto
 
-La finalidad del proyecto push_swap de 42 cuya es la siguiente: dado un conjunto de enteros pasados por línea de comandos, construir una pila A y generar por stdout una secuencia de operaciones válidas (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr) que, aplicadas en el orden producido, dejen la pila ordenada ascendentemente. El programa implementa soluciones especializadas para entradas pequeñas (2–5 elementos) y una estrategia por "chunks" (k_sort) para entradas más grandes.
+La finalidad del proyecto push_swap de 42 es la siguiente: dado un conjunto de enteros pasados por línea de comandos, construir una pila A y generar por stdout una secuencia de operaciones válidas (sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr) que, aplicadas en el orden producido, dejen la pila ordenada ascendentemente. El programa implementa soluciones especializadas para entradas pequeñas (2–5 elementos) y una estrategia por "chunks" (k_sort) para entradas más grandes.
 
 Aquí podéis ver una explicación del proyecto que yo he desarrollado.
 
