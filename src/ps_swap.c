@@ -11,41 +11,36 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	swap_a(t_list **stack_a)
+static void	swap_nodes(t_list **stack)
 {
 	t_list	*first;
 	t_list	*second;
 	int		temp;
 
-	if (!stack_a || !(*stack_a) || !(*stack_a)-> next)
+	if (!stack || !(*stack) || !(*stack)-> next)
 		return ;
-	first = *stack_a;
+	first = *stack;
 	second = first -> next;
 	temp = first -> content -> value;
 	first -> content -> value = second -> content -> value;
 	second -> content -> value = temp;
+}
+
+void	swap_a(t_list **stack_a)
+{
+	swap_nodes(stack_a);
 	write (1, "sa\n", 3);
 }
 
 void	swap_b(t_list **stack_b)
 {
-	t_list	*first;
-	t_list	*second;
-	int		temp;
-
-	if (!stack_b || !(*stack_b) || !(*stack_b)-> next)
-		return ;
-	first = *stack_b;
-	second = first -> next;
-	temp = first -> content -> value;
-	first -> content -> value = second -> content -> value;
-	second -> content -> value = temp;
+	swap_nodes(stack_b);
 	write (1, "sb\n", 3);
 }
 
 void	swap_a_b(t_list **stack_a, t_list **stack_b)
 {
-	swap_a(stack_a);
-	swap_b(stack_b);
+	swap_nodes(stack_a);
+	swap_nodes(stack_b);
 	write (1, "ss\n", 3);
 }
