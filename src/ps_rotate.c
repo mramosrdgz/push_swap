@@ -1,53 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_rotate.c                                        :+:      :+:    :+:   */
+/*   ps_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariramo <mariramo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/04 09:58:31 by mariramo          #+#    #+#             */
-/*   Updated: 2025/08/04 10:29:59 by mariramo         ###   ########.fr       */
+/*   Created: 2025/08/03 10:23:22 by mariramo          #+#    #+#             */
+/*   Updated: 2025/08/03 10:44:54 by mariramo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	rotate_a(t_list **stack_a)
+static void	swap_nodes(t_list **stack)
 {
 	t_list	*first;
-	t_list	*last;
+	t_list	*second;
+	int		temp;
 
-	if (!stack_a || !(*stack_a) || !(*stack_a)-> next)
+	if (!stack || !(*stack) || !(*stack)-> next)
 		return ;
-	first = *stack_a;
-	*stack_a = first -> next;
-	first -> next = NULL;
-	last = *stack_a;
-	while (last -> next)
-		last = last -> next;
-	last -> next = first;
-	write (1, "ra\n", 3);
+	first = *stack;
+	second = first -> next;
+	temp = first -> content -> value;
+	first -> content -> value = second -> content -> value;
+	second -> content -> value = temp;
 }
 
-void	rotate_b(t_list **stack_b)
+void	swap_a(t_list **stack_a)
 {
-	t_list	*first;
-	t_list	*last;
-
-	if (!stack_b || !(*stack_b) || !(*stack_b)-> next)
-		return ;
-	first = *stack_b;
-	*stack_b = first -> next;
-	first -> next = NULL;
-	last = *stack_b;
-	while (last -> next)
-		last = last -> next;
-	last -> next = first;
-	write (1, "rb\n", 3);
+	swap_nodes(stack_a);
+	write (1, "sa\n", 3);
 }
 
-void	rotate_a_b(t_list **stack_a, t_list **stack_b)
+void	swap_b(t_list **stack_b)
 {
-	rotate_a(stack_a);
-	rotate_b(stack_b);
-	write (1, "rr\n", 3);
+	swap_nodes(stack_b);
+	write (1, "sb\n", 3);
+}
+
+void	swap_a_b(t_list **stack_a, t_list **stack_b)
+{
+	swap_nodes(stack_a);
+	swap_nodes(stack_b);
+	write (1, "ss\n", 3);
 }
